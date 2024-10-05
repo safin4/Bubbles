@@ -1,0 +1,63 @@
+*
+{
+    padding: 0px;
+    margin: 0px auto;
+    box-sizing: border-box;
+}
+body
+{
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    perspective: 600px;
+    overflow: hidden;
+    background-image: radial-gradient(circle, #123, #000, 30em);
+}
+.scene
+{
+    position: relative;
+}
+.ball
+{
+    position: absolute;
+    inset: -8em;
+    background-image: radial-gradient(circle at top, #fff, #000);
+    border-radius: 50%;
+    box-shadow: 0 0 2em #000a;
+}
+.ring
+{
+    position: absolute;
+    border: 1px solid;
+    border-radius: 50%;
+    box-shadow: 0 0 1em inset, 0 0 1em;
+    animation: iMove 24s linear infinite, iScale 24s cubic-bezier(0.3642, 0, 0.6358, 1) infinite;
+}
+@keyframes iMove {
+    0%
+    {
+        transform: rotateZ(var(--rz)) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(50em);
+    }
+    100%
+    {
+        transform: rotateZ(var(--rz)) rotateY(var(--ry)) rotateX(var(--rx)) translateZ(50em);
+    }
+}
+@keyframes iScale
+{
+    0%, 100%
+    {
+        inset: -1em;
+        opacity: 0;
+    }
+    35%, 65%
+    {
+        inset: -1em;
+        opacity: 1;
+    }
+    50%
+    {
+        inset: -10em;
+        opacity: 1;
+    }
+}
